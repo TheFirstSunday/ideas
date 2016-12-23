@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D旋转木马</title>
+	<style>
+		#stage{
+			width: 1000px;
+			height: 400px;
+			background: #ccc;
+			border-radius: 3px;
+			box-shadow: 0 0 2px 1px rgba(0,0,0,0.5);
+			margin: 50px auto;
+			/*overflow: hidden;*/
+			-webkit-perspective: 800px;
+			-moz-perspective: 800px;
+			-ms-perspective: 800px;
+			perspective: 800px;
+
+			-webkit-perspective-origin: 50% -10%;
+			-moz-perspective-origin: 50% -10%;
+			-ms-perspective-origin: 50% -10%;
+			perspective-origin: 50% -10%;
+		}
+		#container{
+			width: 128px;
+			height: 100px;
+			/*margin: 80px auto;*/
+			position: absolute;
+			left: 50%;
+			margin-left: -64px;
+			top: 80px;
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+
+			-webkit-transition: transform 1s ease;
+			-moz-transition: transform 1s ease;
+			-ms-transition: transform 1s ease;
+			transition: transform 1s ease;
+		}
+		#container img{
+			position: absolute;
+			-webkit-transition: transform 1s ease;
+			-moz-transition: transform 1s ease;
+			-ms-transition: transform 1s ease;
+			transition: transform 1s ease;
+		}
+	</style>
+</head>
+<body>
+	<div id="stage">
+		<div id="container">
+			
+		</div>
+	</div>
+
+	<script>
+		(function(){
+			var oContainer = document.getElementById('container');
+			// var html = '';
+			var now = 0;
+			for(var i=0; i<9; i++){
+				// html += '<img src="images/mm'+(i+1)+'.jpg"/>';
+				var oImg = new Image();
+				oImg.onload = function(){
+					now++;
+					if(now == 9){
+						var aImg = oContainer.getElementsByTagName('img');
+						for(var i=0; i<aImg.length; i++){
+							(function(index){
+								setTimeout(function(){
+									aImg[index].style.WebkitTransform = 'rotateY('+index*40+'deg) translateZ(190px)';
+									aImg[index].style.MozTransform = 'rotateY('+index*40+'deg) translateZ(190px)';
+									aImg[index].style.MsTransform = 'rotateY('+index*40+'deg) translateZ(190px)';
+									aImg[index].style.transform = 'rotateY('+index*40+'deg) translateZ(190px)';
+
+								}, 100*(9-i));
+							})(i);
+						}
+					}
+				};
+				oImg.src = 'images/mm'+(i+1)+'.jpg';
+				oContainer.appendChild(oImg);
+			}
+			// oContainer.innerHTML = html;
+
+			
+
+			var index = 0;
+			oContainer.onclick = function(){
+				index++;
+				this.style.WebkitTransform = 'rotateY('+(-index*40)+'deg)';
+				this.style.MozTransform = 'rotateY('+(-index*40)+'deg)';
+				this.style.MsTransform = 'rotateY('+(-index*40)+'deg)';
+				this.style.transform = 'rotateY('+(-index*40)+'deg)';
+			};
+		})();
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

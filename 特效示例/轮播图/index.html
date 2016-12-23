@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul, ol{
+			list-style: none;
+		}
+		#container{
+			width: 680px;
+			height: 344px;
+			margin: 100px auto;
+			overflow: hidden;
+			background: #f00;
+			position: relative;
+		}
+		#tab{
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
+		}
+		#tab li{
+			width: 20px;
+			height: 20px;
+			background: #000;
+			color: #fff;
+			text-align: center;
+			line-height: 20px;
+			margin-right: 10px;
+			float: left;
+			cursor: pointer;
+		}
+		#tab .selected{
+			background: orange;
+		}
+		#content img{
+			display: none;
+		}
+		#content .selected{
+			display: block;
+		}
+		#arrow{
+			position: absolute;
+			left: 10px;
+			bottom: 10px;
+		}
+		#arrow span{
+			width: 20px;
+			height: 20px;
+			background: #000;
+			color: #fff;
+			text-align: center;
+			line-height: 20px;
+			float: left;
+			margin-right: 10px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul id="tab">
+			<li class="selected">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<div id="content">
+			<img src="img/1.jpg" alt="" class="selected">
+			<img src="img/2.jpg" alt="">
+			<img src="img/3.jpg" alt="">
+			<img src="img/4.jpg" alt="">
+		</div>
+		<div id="arrow">
+			<span id="prev">&lt;</span>
+			<span id="next">&gt;</span>
+		</div>
+	</div>
+	<script>
+		var oContainer = document.getElementById('container');
+		var oTab = document.getElementById('tab');
+		var aLi = oTab.children;
+		var oContent = document.getElementById('content');
+		var aImg = oContent.children;
+		var oPrev = document.getElementById('prev');
+		var oNext = document.getElementById('next');
+
+		var index = 0;//代表当前正在显示的图片的索引
+
+		for(var i=0; i<aLi.length; i++){
+			aLi[i].index = i;
+			aLi[i].onmouseover = function(){
+				index = this.index;
+				changeImg( this.index );
+			};
+		}
+
+		function changeImg(index){
+			for(var i=0; i<aLi.length; i++){
+				aLi[i].className = '';
+				aImg[i].className = '';
+			}
+			// elem.className = 'selected';
+			aLi[index].className = 'selected';
+			aImg[index].className = 'selected';
+		}
+
+		oPrev.onclick = function(){
+			index--;
+			if(index == -1){
+				index = aLi.length - 1;
+			}
+			changeImg(index);
+		};
+		oNext.onclick = function(){
+			index++;
+			if(index == aLi.length){
+				index = 0;
+			}
+			changeImg(index);
+		};
+
+		var timer;
+		function run(){
+			timer = setInterval(function(){
+				oNext.onclick();
+			}, 2000);
+		}
+
+		run();
+
+		oContainer.onmouseover = function(){
+			clearInterval(timer);
+		};
+
+		oContainer.onmouseout = function(){
+			run();
+		};
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

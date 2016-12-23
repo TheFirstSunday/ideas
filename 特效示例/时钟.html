@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			background: #000;
+		}
+		#cvs1{
+			background: #fff;
+			/*width: 400px;
+			height: 300px;*/
+		}
+	</style>
+</head>
+<body>
+	<canvas id="cvs1" width="400" height="300"></canvas>
+	<script>
+		var cvs = document.getElementById('cvs1');
+		var ctx = cvs.getContext('2d');
+
+		/*ctx.arc(200, 150, 100, 0, 2*Math.PI, false);
+		ctx.stroke();*/
+		
+		function run(){
+			ctx.clearRect(0,0,400,300);
+
+			ctx.lineWidth = 2;
+			ctx.beginPath();
+			for(var i=0; i<60; i++){
+				ctx.moveTo(200, 150);
+				ctx.arc(200, 150, 100, i*6*Math.PI/180, (i+1)*6*Math.PI/180, false);
+			}
+			ctx.closePath();
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(200, 150, 95, 0, 2*Math.PI, false);
+			ctx.fillStyle = '#fff';
+			ctx.closePath();
+			ctx.fill();
+
+			ctx.beginPath();
+			for(var i=0; i<12; i++){
+				ctx.moveTo(200, 150);
+				ctx.arc(200, 150, 100, i*30*Math.PI/180, (i+1)*30*Math.PI/180, false);
+			}
+			ctx.closePath();
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(200, 150, 90, 0, 2*Math.PI, false);
+			ctx.fillStyle = '#fff';
+			ctx.closePath();
+			ctx.fill();
+
+			var now = new Date();
+
+			var second = now.getSeconds(),
+				minute = now.getMinutes() + second/60,
+				hour = now.getHours() + minute/60;
+
+			ctx.beginPath();
+			ctx.lineWidth = 2;
+			ctx.moveTo(200, 150);
+			ctx.arc(200, 150, 80, (second*6-90)*Math.PI/180, (second*6-90)*Math.PI/180, false);
+			ctx.closePath();
+			ctx.strokeStyle = '#f00';
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.lineWidth = 2;
+			ctx.moveTo(200, 150);
+			ctx.arc(200, 150, 60, (minute*6-90)*Math.PI/180, (minute*6-90)*Math.PI/180, false);
+			ctx.closePath();
+			ctx.strokeStyle = '#ccc';
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.lineWidth = 2;
+			ctx.moveTo(200, 150);
+			ctx.arc(200, 150, 40, (hour*30-90)*Math.PI/180, (hour*30-90)*Math.PI/180, false);
+			ctx.closePath();
+			ctx.strokeStyle = '#000';
+			ctx.stroke();
+
+		}
+
+		run();
+
+		
+		setInterval(function(){
+			run();
+		}, 1000);
+
+	</script>
+</body>
+</html>

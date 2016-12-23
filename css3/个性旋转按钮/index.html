@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		#container{
+			width: 50px;
+			height: 50px;
+			position: fixed;
+			right: 20px;
+			bottom: 20px;
+		}
+		#menu li{
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			-webkit-transition: transform 1s ease;
+		}
+		#home{
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			-webkit-transition: transform .5s ease-in;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul id="menu">
+			<li><img src="img/close.png" alt=""></li>
+			<li><img src="img/full.png" alt=""></li>
+			<li><img src="img/open.png" alt=""></li>
+			<li><img src="img/prev.png" alt=""></li>
+			<li><img src="img/refresh.png" alt=""></li>
+		</ul>
+		<div id="home">
+			<img src="img/home.png" alt="">
+		</div>
+	</div>
+	<script>
+		
+		(function(){
+			var oHome = document.querySelector('#home');
+			var oMenu = document.querySelector('#menu');
+			var aMenu = oMenu.querySelectorAll('li');
+
+			var bClicked = true;
+			oHome.addEventListener('click', function(){
+				if(bClicked){
+					this.style.WebkitTransform = 'rotate(-360deg)';
+					for(var i=0; i<aMenu.length; i++){
+						var x = -150 * Math.sin(i*22.5*Math.PI/180);
+						var y = -150 * Math.cos(i*22.5*Math.PI/180);
+						aMenu[i].style.WebkitTransitionDelay = i*50+'ms';
+						aMenu[i].style.WebkitTransform = 'translate('+x+'px, '+y+'px) rotate(-360deg) scale(1)';
+					}
+				}else{
+					this.style.WebkitTransform = 'rotate(0deg)';
+					for(var i=0; i<aMenu.length; i++){
+						aMenu[i].style.WebkitTransitionDuration = '1s';
+						aMenu[i].style.WebkitTransitionDelay = (4-i)*50+'ms';
+						aMenu[i].style.WebkitTransform = 'translate(0, 0) rotate(0deg) scale(1)';
+					}
+				}
+				bClicked = !bClicked;
+				
+			}, false);
+
+			var fn = function(){
+				this.style.WebkitTransitionDelay = '0s';
+				this.style.WebkitTransitionDuration = '0.3s';
+				var currTransform = this.style.WebkitTransform;
+				this.style.WebkitTransform = currTransform +' scale(2)';
+				this.style.opacity = 0.3;
+				var fnTransitiobEnd = function(){
+					this.style.WebkitTransform = currTransform;
+					this.style.opacity = 1;
+					this.removeEventListener('webkitTransitionEnd', fnTransitiobEnd, false);
+				};
+				this.addEventListener('webkitTransitionEnd', fnTransitiobEnd, false);
+			};
+			for(var i=0; i<aMenu.length; i++){
+				aMenu[i].addEventListener('click', fn, false);
+			}
+
+		})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			width: 200px;
+			height: 200px;
+			background: #f00;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<script>
+		var oDiv = document.getElementById('div1');
+
+		drag(oDiv, function(){
+			if(oDiv.left <= 0){
+				oDiv.left = 0;
+			}
+			if(oDiv.left >= document.documentElement.clientWidth - oDiv.offsetWidth){
+				oDiv.left = document.documentElement.clientWidth - oDiv.offsetWidth;
+			}
+			if(oDiv.top <= 0){
+				oDiv.top = 0;
+			}
+			if(oDiv.top >= document.documentElement.clientHeight - oDiv.offsetHeight){
+				oDiv.top = document.documentElement.clientHeight - oDiv.offsetHeight;
+			}
+		});
+
+		function drag(elem, callback){
+			elem.onmousedown = function(e){
+				e = e || window.event;
+				var disX = e.clientX - this.offsetLeft;
+				var disY = e.clientY - this.offsetTop;
+
+
+				document.onmousemove = function(e){
+					e = e || window.event;
+					elem.left = e.clientX - disX;
+					elem.top = e.clientY - disY;
+
+					callback && callback();
+
+					elem.style.left = elem.left + 'px';
+					elem.style.top = elem.top + 'px';
+
+				};
+
+				elem.onmouseup = function(){
+					document.onmousemove = null;//取消事件
+				};
+			};
+		}
+
+	</script>
+</body>
+</html>

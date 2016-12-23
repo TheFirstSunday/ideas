@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		#container{
+			width: 300px;
+			margin: 200px auto;
+		}
+		#search-text{
+			width: 298px;
+			border: 1px solid #333;
+			height: 30px;
+		}
+		#search-result{
+			width: 298px;
+			border: 1px solid #333;
+			background: #fff;
+			display: none;
+		}
+		#search-result li{
+			height: 25px;
+			text-indent: 10px;
+			line-height: 25px;
+		}
+		#search-result li:hover{
+			cursor: pointer;
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<input type="text" id="search-text">
+		<ul id="search-result">
+		</ul>
+	</div>
+
+	<script>
+		var arr = ["iphone4", 'iphone5', 'iphone6', 'sansung'];
+
+		var oText = document.getElementById('search-text');
+		var oResult = document.getElementById('search-result');
+		/*var aLi = oResult.getElementsByTagName('li');
+		for(var i=0; i<aLi.length; i++){
+			aLi[i].onclick = function(){
+				alert(this.innerHTML);	
+			};
+		}*/
+
+		oText.onkeyup = function(e){
+			if(e.which == 38 || e.which == 40 || e.which == 13){
+				return;
+			}else{
+				if(this.value != ""){
+					oResult.innerHTML = "";
+					for(var i=0; i<arr.length; i++){
+						if(arr[i].indexOf(this.value) != -1){
+							var oLi = document.createElement('li');
+							oLi.innerHTML = arr[i];
+							oLi.onclick = function(){
+								oText.value = this.innerHTML;
+								oResult.style.display = 'none';
+							};
+							oResult.appendChild(oLi);
+						}
+					}
+					oResult.style.display = oResult.children.length>0?"block":"none";
+				}else{
+					oResult.innerHTML = "";
+					oResult.style.display = 'none';
+				}
+			}
+			
+		};
+
+		var index = -1; //代表选中的li的索引
+		oText.onkeydown = function(e){
+			if(e.which == 38 || e.which == 40){
+				if(e.which == 40){
+					for(var i=0; i<oResult.children.length; i++){
+						oResult.children[i].style.background = 'transparent';
+					}
+					index++;
+					if(index == oResult.children.length){
+						index = 0;
+					}
+					oResult.children[index].style.background = '#ccc';
+					console.log(index);
+				}
+			}else if(e.which == 13){
+				oText.value = oResult.children[index].innerHTML;
+				oResult.style.display = 'none';
+				index = -1;
+
+			}
+		};
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

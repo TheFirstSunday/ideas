@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul, ol{
+			list-style: none;
+		}
+		#container{
+			width: 450px;
+			height: 300px;
+			margin: 100px auto;
+		}
+		#tab{
+			height: 30px;
+		}
+		#tab li{
+			width: 120px;
+			height: 30px;
+			float: left;
+			margin-right: 10px;
+			background: #ccc;
+			text-align: center;
+			line-height: 30px;
+			cursor: pointer;
+		}
+		#tab .selected{
+			color: #fff;
+			background: #000;
+		}
+		#content{
+			border-top: 1px solid #000;
+			height: 270px;
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul id="tab">
+			<li class="selected">jquery</li>
+			<li>javascript</li>
+			<li>css</li>
+		</ul>
+		<div id="content"></div>
+	</div>
+	<script>
+		var data = [
+			"111111",
+			"222222",
+			"333333"
+		];
+		var oTab = document.getElementById('tab');
+		var aLi = oTab.children;//oTab.getElementsByTagName('li');
+		var oContent = document.getElementById('content');
+		oContent.innerHTML = data[0];
+		for(var i=0; i<aLi.length; i++){
+			aLi[i].index = i;
+			aLi[i].onclick = function(){
+				for(var i=0; i<aLi.length; i++){
+					aLi[i].className = '';
+				}
+				this.className = 'selected';
+				oContent.innerHTML = data[this.index];
+				
+			};
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
