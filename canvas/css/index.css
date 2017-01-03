@@ -1,0 +1,15 @@
+/*index.css样式表开始*/
+*{
+	padding: 0;
+	margin: 0;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+#canvas{
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+}
+/*index.css样式表结束*/

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>病毒</title>
+	<style>
+		body{
+			background: url(img/bingdu.jpg);
+		}
+		h1{
+			font-size:100px;
+			font-weight: bold;
+			text-align: center;
+		}
+	</style>
+
+</head>
+<body>
+	<h1 id="h1">警告！警告！您的电脑已准备关机！</h1>
+	<script>
+		var i = 0;
+		function getColor(){
+			i++;
+			switch(i){ 
+				case 1:return "#ff0000";
+				case 2:return "#ff6600";
+				case 3:return "#3366cc";
+				default:return "black";
+		 }
+		}
+
+		function colorful(){
+		 var o =document.getElementById('h1');
+		 o.style.color=getColor();
+		 if(i==3)i=0;
+		 setTimeout('colorful()',300);
+		}
+		colorful();
+	</script>
+</body>
+</html>

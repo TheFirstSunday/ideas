@@ -1,0 +1,46 @@
+/*index.css样式表开始*/
+#small-pic{
+    width: 200px;
+    height: 150px;
+    float: left;
+    margin-right: 10px;
+    position: relative;
+}
+#small-pic img{
+    width: 200px;
+    height: 150px;
+}
+#big-pic{
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+    float: left;
+    /*display: none;*/
+    /*position: relative;*/
+}
+#drag{
+    width: 40px;
+    height: 30px;
+    background: #ccc;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    display: none;
+}
+#mask{
+    width: 200px;
+    height: 150px;
+    background: #f00;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    z-index: 1;
+}
+#big-img{
+    position: absolute;
+}
+/*index.css样式表结束*/

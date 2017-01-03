@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid #cccccc;
+            margin: 50px auto;
+            display: block;
+            /*默认300*150*/
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas">
+    当前浏览器不支持canvas,请更换浏览器后在尝试;
+</canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    canvas.width = 1024;
+    canvas.height = 768;
+
+    context.lineWidth = 5;
+    context.strokeStyle = "#005588";
+    context.arc(300, 300, 200, 0, 0.5 * Math.PI, true);//默认为false顺时针
+    context.stroke();
+</script>
+</body>
+</html>

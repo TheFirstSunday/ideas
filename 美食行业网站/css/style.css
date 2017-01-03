@@ -1,0 +1,513 @@
+/*css样式重置*/
+*{
+	margin: 0;
+	padding: 0;
+}
+ul,ol{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+img{
+	border: 0;
+}
+body{
+	font-size: 14px;
+}
+/*去除所有边距样式格式*/
+
+/*head结束*/
+#header{
+	background-image: url(../img/headbackground.jpg); 
+	background-repeat: no-repeat; 
+	height: 540px;
+	background-position: center top;
+	position: relative;
+}
+#blackbg{
+	width: 100%;
+	height: 170px;
+	float: left;
+}
+#logo{
+	background-image: url(../img/logo.png); 
+	background-repeat: no-repeat; 
+	background-position: 10px 20px; 
+	height: 120px;
+}
+.wraper{
+	width: 1200px;
+	margin: 0 auto;
+}
+#contain{
+	width: 100%;
+}
+#headtitle{
+	margin: -200px 300px;
+}
+#choose-contain{
+	width: 400px;
+	height: 50px;
+	margin: 230px auto; 
+	position: relative;
+}
+.ch-con{
+	color: #fff;
+	height: 40px;
+	text-align: center;
+	float: left;	
+	width: 180px;
+	margin-left: 20px;
+	font-size: 20px;
+	line-height: 40px;
+	cursor: pointer;
+}
+#ch-book{
+	margin-left: 0;
+	background: #000;
+	opacity: 0.5;
+	filter: alpha('opacity=50');
+	border: 1px solid #000;
+}
+#ch-see{
+	background: #fff;
+	opacity: 0.5;
+	filter: alpha('opacity=50');
+	border: 1px solid #fff;
+}
+.pstyle{
+	color: #fff;
+	font-size: 16px;
+	font-family: "Microsoft YaHei";
+	position: absolute;
+	cursor: pointer;
+}
+#pbook{
+	left: 40px;
+	top: 10px;
+}
+#psee{
+	left: 240px;
+	top: 10px;
+}
+#headchoose{
+	position: absolute;
+	left: 500px;
+	top: 50px;
+}
+#headchoose li{
+	font-family: "Microsoft YaHei";
+	height: 20px;
+	color: white;
+	float: left;
+	margin-right: 40px;
+	cursor: pointer;
+}
+#share{
+	position: absolute;
+	top: 50px;
+	left: 1070px;
+}
+#share li{
+	margin-right: 19px;
+	width: 19px;
+	height: 23px;
+	float: left;
+}
+#share li a{
+	cursor: pointer;
+	margin-right: 19px;
+	width: 19px;
+	height: 23px;
+	background-image: url(../img/share.png);
+	float: left;
+}
+#twitter a{
+	background-position: 0 0;
+}
+#youtube a{
+	background-position: -38px 0;
+}
+#facebook a{
+	background-position: -70px 0;
+}
+/*head结束*/
+
+
+/*content开始*/
+/*about开始*/
+#about{
+	height: 540px;
+	background: url(../img/about.png);
+	position: relative;
+}
+#about p{
+	font-family: "Microsoft YaHei";
+	width: 390px;
+	line-height: 27px;
+	position: absolute;
+	left: 185px;
+	top: 200px;
+	font-size: 14px;
+	color: #4c4c4c;
+	text-align: center;
+}
+#just{
+	position: absolute;
+	left: 200px;
+	top: 100px;
+}
+#cook{
+	position: absolute;
+	left: 330px;
+	top: 370px;
+}
+#dish{
+	position: absolute;
+	top: 100px;
+	left: 700px;
+}
+/*about结束*/
+/*Igredients开始*/
+#Igredients{
+	height: 540px;
+	background-image: url(../img/Igredientsbg.png);
+	background-position: center center;
+	position: relative;
+} 	
+#Igredients img{
+	position: absolute;
+	left: 750px;
+	top: 100px;
+}
+#Igredients p{
+	font-family: "Microsoft YaHei";
+	width: 370px;
+	line-height: 20px;
+	position: absolute;
+	left: 760px;
+	top: 230px;
+	font-size: 13px;
+	color: #fff;
+	text-align: center;
+	z-index: 999;
+}
+/*Igredients结束*/
+/*Menu开始*/
+#Menu{
+	height: 630px;
+	background: url(../img/menubg.png);
+	position: relative;
+} 	
+#menu1{
+	position: absolute;
+	left: 250px;
+	top: 60px;
+}
+#menu2{
+	position: absolute;
+	left: 250px;
+	top: 340px;
+}
+#menu3{
+	position: absolute;
+	left: 750px;
+	top: 60px;
+}
+#menu4{
+	position: absolute;
+	left: 750px;
+	top: 280px;
+}
+#Menu img{
+	margin-left: 70px;
+	margin-bottom: 20px;
+}
+dt{
+	font-family: "Microsoft YaHei";
+	font-size: 15px;
+	color: #c89f2d;
+	height: 30px;
+	line-height: 30px;
+	font-weight: bold;
+}
+dd{
+	height: 20px;
+	line-height: 20px;
+	font-family: "Microsoft YaHei";
+	color: #4c4c4c;
+	font-size: 8px;
+}
+.span1{
+	float: left;	
+}
+.span2{
+	float: right;
+}
+/*Menu结束*/
+/*reviews开始*/
+#reviews{
+	height: 540px;
+	background-image: url(../img/chuanbg.png);
+	background-position: center center;
+	position: relative;
+} 	
+#reviews img{
+	position: absolute;
+	left: 400px;
+	top: 100px;
+}
+.pclass{
+	font-family: "Microsoft YaHei";
+	width: 370px;
+	line-height: 25px;
+	position: absolute;
+	left: 470px;
+	top: 230px;
+	font-size: 13px;
+	color: #fff;
+	text-align: center;
+	z-index: 999;
+}
+#pyin{
+	font-family: "Microsoft YaHei";
+	width: 100px;
+	line-height: 100px;
+	position: absolute;
+	left: 410px;
+	top: 180px;
+	font-size: 67px;
+	color: #9b9d9a;
+	text-align: center;
+	z-index: 999;
+}
+/*reviews结束*/
+/*reservations开始*/
+#reservations{
+	height: 540px;
+	background-image: url(../img/bai2.png);
+	background-position: center center;
+	position: relative;
+} 	
+#twopic{
+	position: absolute;
+	top: 100px;
+	left: 200px;
+}
+#just2{
+	position: absolute;
+	top: 100px;
+	left: 700px;	
+}
+#reservations p{
+	font-family: "Microsoft YaHei";
+	width: 370px;
+	line-height: 20px;
+	position: absolute;
+	left: 690px;
+	top: 180px;
+	font-size: 13px;
+	color: #9d9e9e;
+	text-align: center;
+	z-index: 999;
+}
+#fourinput{
+	position: absolute;
+	left: 700px;
+	top: 240px;
+}
+#fourinput div{
+	float: left;
+}
+#fourinput h3{
+	height: 50px;
+	line-height: 70px;
+	font-family: "Microsoft YaHei";
+	color: #c9a131;
+}
+#fourinput input{
+	font-size: 14px;
+	font-style: italic; 
+	text-indent: 10px;
+	color: #7c7c7c;
+	height: 30px;
+	width: 140px;
+}
+.inputmargin{
+	margin-right: 50px;
+}
+#Booknow{
+	cursor: pointer;
+	height: 30px;
+	line-height: 30px;
+	width: 200px;
+	position: absolute;
+	left: 760px;
+	top: 430px;
+	background: #c9a131;
+	font-family: "Microsoft YaHei";
+	font-size: 17px;
+	color: #fff;
+	text-align: center;
+}
+#firstin a{
+	height: 13px;
+	width: 14px;	
+	position: absolute;
+	top: 60px;
+	left: 310px;
+	background: url(../img/rili.png);
+}
+/*reservations结束*/
+/*content结束*/
+/*footer开始*/
+#footer{
+	height: 200px;
+	background: url(../img/footbg.png);
+	position: relative;
+} 	
+#abuspic{
+	position: absolute;
+	left: 200px;
+	top: 10px;
+}
+#openpic{
+	position: absolute;
+	left: 550px;
+	top: 10px;
+}
+#ourpic{
+	position: absolute;
+	left: 900px;
+	top: 10px;
+}
+#aboutp{
+	font-family: "Microsoft YaHei";
+	width: 320px;
+	line-height: 20px;
+	position: absolute;
+	left: 130px;
+	top: 70px;
+	font-size: 13px;
+	color: #fff;
+	text-align: center;
+	z-index: 999;
+}
+#time1{
+	font-family: "Microsoft YaHei";
+	width: 300px;
+	line-height: 20px;
+	position: absolute;
+	left: 500px;
+	top: 70px;
+	font-size: 13px;
+	color: #fff;
+	text-align: center;
+	z-index: 999;
+}
+#outp{
+	font-family: "Microsoft YaHei";
+	width: 300px;
+	line-height: 20px;
+	position: absolute;
+	left: 850px;
+	top: 70px;
+	font-size: 13px;
+	color: #fff;
+	text-align: center;
+	z-index: 999;
+}
+#share1{
+	position: absolute;
+	top: 150px;
+	left: 600px;
+}
+#share1 li{
+	margin-right: 8px;
+	width: 14px;
+	height: 18px;
+	float: left;
+}
+#share1 li a{
+	cursor: pointer;
+	margin-right: 8px;
+	width: 14px;
+	height: 18px;
+	background-image: url(../img/share.png);
+	float: left;
+}
+#share11 a{
+	background-position: 0 -23px;
+}
+#share12 a{
+	background-position: -22px -23px;
+}
+#share13 a{
+	background-position: -48px -23px;
+}
+#share14 a{
+	background-position: -74px -23px;
+}
+#share2{
+	position: absolute;
+	top: 150px;
+	left: 960px;
+}
+#share2 li{
+	margin-right: 11px;
+	width: 21px;
+	height: 18px;
+	float: left;
+}
+#share2 li a{
+	cursor: pointer;
+	margin-right: 11px;
+	width: 21px;
+	height: 18px;
+	background-image: url(../img/share.png);
+	float: left;
+}
+#share21 a{
+	background-position: 0 -42px;
+}
+#share22 a{
+	background-position: -32px -42px;
+}
+#share23 a{
+	background-position: -63px -42px;
+}
+#share24 a{
+	background-position: -95px -42px;
+}
+/*footer结束*/
+/*回到顶部开始*/
+#top{
+	cursor: pointer;
+	width: 47px;
+	height: 73px;
+	background-image: url(../img/top.png);
+	position: fixed;
+	right: 0;
+	bottom: 0;
+}
+#top:hover{
+	background-position: -47px 0;
+}
+/*回到顶部结束*/
+/*js需要样式开始*/
+.focus{
+	 background: #c9a131;
+}
+.error{
+	background: #f00;
+	color: #fff;
+	font-weight: bold;
+}
+.success{
+	background: #0f0;
+	color: #fff;
+	font-weight: bold;
+}
+
+/*js需要样式结束*/
